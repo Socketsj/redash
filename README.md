@@ -50,7 +50,7 @@
 
 ## 代码结构
  Redash代码结构模块化做的非常好，通过目录名可以分析出代码功能定位
- <div align="center"> <img src="images/cdoe.jpg"/> </div><br>
+ <div align="center"> <img src="images/cdoe.png"/> </div><br>
 
  - client 此目录下主要是前端文件如html模板、js文件和css文件等
  - redash 此目录为后端逻辑也是Redash的核心代码部分
