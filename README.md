@@ -4,4 +4,29 @@
 </div>
 
 ## 前言
- 前一段时间拜读过redash源码和部署过redash，经过几番周折，总算对redash有一定认识。在此记录前段时间的学习成果，如有错误请指出
+ 前一段时间拜读过redash源码和部署过redash，经过几番周折，总算对redash有一定认识。在此记录前段时间的学习成果，此篇旨在抛砖引玉，如有错误请指出。
+
+## Redash
+ 这里啰嗦一下，可能有一些大佬们不了解redash。redash是一款融合多数据源的可视化查询工具，可以说一个支持多数据源的数据可视化工具。深入了解前往[redash文档](https://redash.io/help/)
+
+## 相关技术
+### angular
+  前端使用angular版本1.5.8，对于当前版本算是比较旧的版本。这可能是redash项目开发较早和前端技术快速迭代更新有关。
+### python
+  后端使用python2.7编写，算上一个历久弥新的版本
+### flask
+  使用flask作为web框架，处理http请求，[flask文档](https://dormousehole.readthedocs.io/en/latest/)
+### sqlalchemy
+  作为redash的orm，用于redash后台信息的增删查改，如记录数据源，记录查询query等,[sqlalchemy](https://docs.sqlalchemy.org/en/13/)
+### celery
+  celery是异步任务队列，用于redash中的异步任务，要理解redash原理必须先了解[celery](http://docs.jinkan.org/docs/celery/)
+
+## 技术架构
+<div align="center"> <img src="images/architecture.jpg"/> </div><br>
+Redash采用的Celery异步架构，大部分功能模块都由异步任务完成。使用redis作为消息中间件，每个执行异步任务的worker之间都是独立的。
+query_runner是支持多数据源查询的关键部分，提供了各种数据源的查询引擎。Postgresql存储查询过程中产生的数据以及配置信息如数据源。
+webserve负责接受前端发来的请求发起异步任务。前端主要是获取到后端返回数据，控制页面元素和css样式，提供可视化组件和基本功能。
+所有与后端交互部分js逻辑处理，实现数据获取与功能跳转。
+
+
+
