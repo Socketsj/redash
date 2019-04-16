@@ -17,7 +17,7 @@
 ### flask
   使用flask作为web框架，处理http请求，[flask文档](https://dormousehole.readthedocs.io/en/latest/)
 ### sqlalchemy
-  作为redash的orm，用于redash后台信息的增删查改，如记录数据源，记录查询query等,[sqlalchemy](https://docs.sqlalchemy.org/en/13/)
+  作为Redash的orm，用于redash后台信息的增删查改，如记录数据源，记录查询query等,[sqlalchemy](https://docs.sqlalchemy.org/en/13/)
 ### celery
   celery是异步任务队列，用于redash中的异步任务，要理解redash原理必须先了解[celery](http://docs.jinkan.org/docs/celery/)
 
@@ -36,7 +36,7 @@
   前端主要是获取到后端返回数据，控制页面元素和css样式，提供可视化组件和基本功能。
 所有与后端交互部分js逻辑处理，实现数据获取与功能跳转。
 
-### 一次查询过程
+## 一次查询过程
  查询功能是Redash的核心功能，通过了解查询过程结合架构图能更清晰了解Redash工作原理
 
  编写好sql点击execute共有以下操作
@@ -59,6 +59,20 @@
  以下是Redash目录下的结构
   <div align="center"> <img src="images/code2.png"/> </div><br>
  
- 
- 
+ - authentication 权限认证模块如权限认证和登录相关功能
+ - cli Redash的命令行操作如建表、添加数据源、测试函数等。提供命令行操作接口
+ - destination Redash上通知模块，定义通知类型如邮件通知
+ - handles 后端接口定义
+ - metrics 统计指标相关
+ - models 模型定义，后台模型类定义是Redash设计核心
+ - query_runner Redash的查询引擎，支持各种数据源关键部分
+ - settings 配置文件
+ - tasks 定时任务和异步任务定义
+ - templates html模板如发送邮件模板等
+ - util 通用工具包
+
+## 模型关系
+ 模型关系是Redash后台设计的核心部分，模型定义了Redash后台功能。
+ 由于model过多，为方便了解模型一些关系连线会删除
+ <div align="center"> <img src="images/model.png"/> </div><br>
 
