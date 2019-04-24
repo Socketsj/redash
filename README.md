@@ -13,7 +13,7 @@
 ### angular
   前端使用angular版本1.5.8，对于当前版本算是比较旧的版本。这可能是redash项目开发较早和前端技术快速迭代更新有关。
 ### python
-  后端使用python2.7编写，算上一个历久弥新的版本
+  后端使用python2.7编写，算上一个"历久弥新"的版本
 ### flask
   使用flask作为web框架，处理http请求，[flask文档](https://dormousehole.readthedocs.io/en/latest/)
 ### sqlalchemy
@@ -75,4 +75,23 @@
  模型关系是Redash后台设计的核心部分，模型定义了Redash后台功能。
  由于model过多，为方便了解模型一些关系连线会删除
  <div align="center"> <img src="images/model.png"/> </div><br>
-
+ 
+ - access_permission, 权限表
+ - alembic_version,版本号
+ - alert_subscriptions，报警描述
+ - alerts，报警列表
+ - api_keys, api key管理
+ - changes，升级改动
+ - dashboards，报表存储
+ - data_source_groups,每个组对应的数据源
+ - data_sources，所有数据源
+ - events，后台日志
+ - groups，所有分组列表
+ - notification_destinations，报警的模板和目的地
+ - organizations， 组织
+ - queries，所有queris
+ - query_results，query的结果，另一种缓存
+ - query_snippets，SQL的评论
+ - users, 用户已列表
+ - visualizations，可视化图表存储
+ - widgets，可视化控件
